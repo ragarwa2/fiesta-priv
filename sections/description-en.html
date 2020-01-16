@@ -1,0 +1,92 @@
+<html>
+<h2 id="desc" class="list">FIESTA-Priv: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Figure [Ontology Core]("#ontology") shows the core of the ontology and the changes, in detail. Here only sensor dependent concepts are shown. For Actuator related concepts refer to [Actuation Graph]("#actuationGraph"). Figure [Privacy Graph]("#privacyGraph") shows the privacy related concepts that are added to the ontology. Figures [Resource Graph Annotation]("#resourceGraphAnnotation") and [Observation Graph Annotation]("#observationGraphAnnotation") provide sample annotation for the resource and observation graph. It assumes a mobile crowdsensing testbed called Soundcity that uses FIESTA-Priv ontology to annotate its data. The figures show annotations to most relevant concepts. Figures [Consent Graph Annotation]("#consentgraph") and [User Permissions Graph Annotation]("#userpermissionsgraph"), on the other hand, provide sample annotation for the privacy graph. 
+</span>
+<div id="ontology">
+	<h3 id="ontologyhead">
+		Ontology Core<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<span class="markdown">Wrt to FIESTA-IoT ontology, we mark the changes in red. Note that we kept the core idea of reuse intact and tried to perform minimal yet required changes</span>
+	<div style="text-align:center;">
+		<img src="ontology.png" width="1300px">
+	</div>
+</div>
+<div id="actuationGraph">
+	<h3 id="actuationGraphhead">
+		Actuation Graph<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<span class="markdown">We show minimal graph for simplicity. Links pertaining to concepts such as ssn:System, geo:Spatial, etc. do exist and should be treated equaly as in the case of Sensors.</span>
+	<div style="text-align:center;">
+		<img src="actuationgraph.png" width="1000px">
+	</div>
+</div>
+<div id="privacyGraph">
+	<h3 id="privacyGraphhead">
+		Privacy Graph<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div style="text-align:center;">
+		<img src="privacygraph.png" width="800px">
+	</div>
+</div>
+
+<div id="resourceGraphAnnotation">
+	<h3 id="resourceGraphAnnotationhead">
+		Resource Graph Annotation<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div style="text-align:center;">
+		<img src="resourcegraph.png" width="800px">
+	</div>
+
+</div>
+<div id="observationGraphAnnotation">
+	<h3 id="observationGraphAnnotationhheas">
+		Observation Graph Annotation<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div style="text-align:center;">
+		<img src="observationgraph.png" width="800px">
+	</div>
+</div>
+<div id="consentgraph">
+	<h3 id="consentgraphhead">
+		Consent Graph Annotation<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div style="text-align:center;">
+		<img src="consentgraph.png" width="800px">
+	</div>
+</div>
+<div id="userpermissionsgraph">
+	<h3 id="userpermissionsgraphhhead">
+		User Permission Graph Annotation<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div style="text-align:center;">
+		<img src="userpermissionsgraph.png" width="800px">
+	</div>
+</div>
+<div id="query">
+	<h3 id="queryhead">
+		Example SPARQL Query<span class="backlink"> back to <a href="#toc">ToC</a></span>
+	</h3>
+	<div>
+		<span class="markdown">
+			<code># relevant PREFIX
+			select ?sensor
+			where {
+			 $USER_URI$ a con:AllowedParty .
+			 $USER_URI$ priv:hasPermission ?permission .
+			 ?permission con:permission_given_for_activity ?action .
+			 ?action a iot-taxonomy:Discovery .
+			 ?action con:activity_has_purpose ?purpose .
+			 ?purpose a iot-taxonomy:KnowSensorsInTheArea . 
+			 ?permission Con:permission_given_for_data ?sensor .
+			 ?sensor sosa:isHostedBy ?platform .
+			 ?platform geo:location ?point.
+			 ?point geo:lat ?lat . 
+			 ?point geo:long ?lng . 
+			 FILTER (?lng > -50 && ?lng < 50 && ?lat < 100 && ?lat > 0 ) 
+			}</code>
+		</span>
+	</div>
+</div>
+
+</html>

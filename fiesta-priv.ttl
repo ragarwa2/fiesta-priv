@@ -1,0 +1,1295 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns0: <http://purl.org/vocab/vann/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+
+<http://purl.org/iot/ontology/fiesta-priv#>
+  a owl:Ontology ;
+  owl:imports <http://purl.org/iot/vocab/iot-taxonomy-lite#> ;
+  dc11:contributor "Elias Tragos, UCD, Dublin"@en, "Rachit Agarwal, Inria, Paris"@en, "Tarek Elsaleh, UNIS, Surrey"@en ;
+  dc11:title "FIESTA-Priv Ontology"@en ;
+  dc:bibliographicCitation "R. Agarwal, D. G. Fernandez, T. Elsaleh, A. Gyrard, J. Lanza, L. Sanchez, N.Georgantas, and V. Issarny. 2016. Unified IoT Ontology to Enable Interoperability and Federation of Testbeds. In 3rd IEEE World Forum on Internet of Things. IEEE, Reston, USA, pp. 70-75"@en ;
+  dc11:rights "Creative Commons Attribution 4.0 International" ;
+  dc:modified "2019-10-07"^^xsd:date ;
+  ns0:preferredNamespacePrefix "fiesta-priv" ;
+  ns0:preferredNamespaceUri "http://purl.org/iot/ontology/fiesta-iot#" ;
+  rdfs:comment """
+     Please report any errors to rachit.agarwal@inria.fr
+    """@en ;
+  rdfs:label "FIESTA-Priv" ;
+  owl:versionInfo "1.0" .
+
+dc11:source a owl:AnnotationProperty .
+dc:bibliographicCitation a owl:AnnotationProperty .
+dc:created a owl:AnnotationProperty .
+dc:creator a owl:AnnotationProperty .
+dc:description a owl:AnnotationProperty .
+dc:license a owl:AnnotationProperty .
+dc:rights a owl:AnnotationProperty .
+dc:title a owl:AnnotationProperty .
+ns0:preferredNamespacePrefix a owl:AnnotationProperty .
+ns0:preferredNamespaceUri a owl:AnnotationProperty .
+schema:domainIncludes a owl:AnnotationProperty .
+schema:maxValue
+  a owl:AnnotationProperty ;
+  schema:rangeIncludes xsd:double, xsd:int ;
+  rdfs:domain <http://www.w3.org/ns/ssn/systems/SystemProperty> .
+
+schema:minValue
+  a owl:AnnotationProperty ;
+  schema:rangeIncludes xsd:double, xsd:int ;
+  rdfs:domain <http://www.w3.org/ns/ssn/systems/SystemProperty> .
+
+schema:rangeIncludes a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+skos:example a owl:AnnotationProperty .
+skos:note a owl:AnnotationProperty .
+<http://purl.org/adaptcentre/openscience/ontologies/consent#activity_has_purpose>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Action> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#activity_has_purpose> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/adaptcentre/openscience/ontologies/consent#Purpose>
+  ] ;
+  rdfs:comment "provides a relation between a given action (example discovery of sensors in a region) and its purpose. " ;
+  rdfs:label "activity_has_purpose" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#consent_given_by>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/ontology/fiesta-priv#givesConsent> ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Consent> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#consent_given_by> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty>
+  ] ;
+  rdfs:comment "Identifies the person which gives the consent." ;
+  rdfs:label "consent_given_by" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#consent_given_for>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Consent> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#consent_given_for> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission>
+  ] ;
+  rdfs:comment "provides link between the consent and permisions for which consent is given." ;
+  rdfs:label "consent_given_for" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_activity>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_activity> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/adaptcentre/openscience/ontologies/consent#Action>
+  ] ;
+  rdfs:comment "provides a relation between a given action (example discovery of sensors in a region) and permissions needed to fulfil the action." ;
+  rdfs:label "permission_given_for_activity" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission> ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "Identifies the data for which permissions are granted." ;
+  rdfs:label "permission_given_for_data" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_to>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/ontology/fiesta-priv#hasPermission> ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_to> ;
+    owl:someValuesFrom <http://purl.org/adaptcentre/openscience/ontologies/consent#AllowedParty>
+  ] ;
+  rdfs:comment "Identifies the party/person to which permissions are granted." ;
+  rdfs:label "permission_given_to" .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasMetaData>
+  a owl:ObjectProperty ;
+  owl:equivalentProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasUnit> ;
+  rdfs:comment """
+        A Value of a Thing can have MetaData (like units, precision-ranges).
+        """ ;
+  rdfs:label "Has MetaData" .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasService>
+  a owl:ObjectProperty ;
+  owl:equivalentProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+  rdfs:comment """
+        The Functionalities of a Device are exposed in the network as Services of the Device
+        """ ;
+  rdfs:label "Has Service" .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasThingProperty>
+  a owl:ObjectProperty ;
+  owl:equivalentProperty <http://www.w3.org/ns/sosa/observes> ;
+  rdfs:comment """
+        A Thing may have properties that can be described by Values
+        """ ;
+  rdfs:label "Has Thing Property" .
+
+<http://purl.org/iot/ontology/fiesta-priv#controls>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/GDPRtEXT#Controller> ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#controls> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#controls> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#controls> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#controls> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/System>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#controls> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/ssn/Deployment>
+  ] ;
+  rdfs:comment "This property identies who controls what." ;
+  rdfs:label "controls" .
+
+<http://purl.org/iot/ontology/fiesta-priv#givesConsent>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#givesConsent> ;
+    owl:someValuesFrom <http://purl.org/adaptcentre/openscience/ontologies/consent#Consent>
+  ] ;
+  rdfs:comment "This property identifies who is has given the consent to certain permission." ;
+  rdfs:label "gives consent" .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasDirection>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Result> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#hasDirection> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/iot/vocab/iot-taxonomy-lite#Direction>
+  ] ;
+  rdfs:comment "The observations made by the sensors are affected by the direction of the sensing device. This property allows observations of the sensor to be associated to the Direction concept." ;
+  rdfs:label "has Direction" .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasDomainOfInterest>
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuator>, <http://www.w3.org/ns/sosa/Sensor> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#hasDomainOfInterest> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/iot/vocab/iot-taxonomy-lite#DomainOfInterest>
+  ] ;
+  rdfs:comment "This property is used to classify devices by DomainOfInterest (e.g., blood pressure sensor is used in healthcare)." ;
+  rdfs:label "has Domain Of Interest"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasMeasurementType>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Result> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#hasMeasurementType> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/iot/vocab/iot-taxonomy-lite#MeasurementType>
+  ] ;
+  rdfs:comment "Each sensing device can have a different sensing mechanism which may result in different kinds of sensor data. This property links observation of the sensor to the associated MeasurementType."@en ;
+  rdfs:label "has Measurement Type"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasPermission>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#AllowedParty> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#hasPermission> ;
+    owl:someValuesFrom <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission>
+  ] ;
+  rdfs:comment "This property identifies who has permissions to access certain data"@en ;
+  rdfs:label "has Permission"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasSoundSource>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://purl.org/iot/ontology/fiesta-priv#hasSource> ;
+  rdfs:comment "This property links sound to its environmental source."@en ;
+  rdfs:label "has Sound Source"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#hasSource>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Result> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#hasSource> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/iot/vocab/iot-taxonomy-lite#Source>
+  ] ;
+  rdfs:comment "This property links sensed phenomena to its environmental source."@en ;
+  rdfs:label "has Source"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#ownedBy>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.org/iot/ontology/fiesta-priv#owns> ;
+  schema:domainIncludes <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>, <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/Observation>, <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#ownedBy> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty>
+  ] ;
+  rdfs:comment "This property identifies the resources or observations are owned by whom"@en ;
+  rdfs:label "owned By"@en .
+
+<http://purl.org/iot/ontology/fiesta-priv#owns>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty> ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#owns> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#owns> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#owns> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.org/iot/ontology/fiesta-priv#owns> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "This property identifies who own the resources or observations"@en ;
+  rdfs:label "owns"@en .
+
+geo:location
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/FeatureOfInterest>, <http://www.w3.org/ns/sosa/Observation>, <http://www.w3.org/ns/sosa/Platform> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty geo:location ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass geo:SpatialThing
+  ] ;
+  rdfs:comment """
+            The relation between something and the point, 
+            or other geometrical thing in space, where it is.  For example, the realtionship between
+            a radio tower and a Point with a given lat and long.
+            Or a relationship between a park and its outline as a closed arc of points, or a road and
+            its location as a arc (a sequence of points).
+            Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+            an accuracy appropriate for the size of the object and uses such as mapping.
+        """@en ;
+  rdfs:label "location" .
+
+<http://www.w3.org/ns/sosa/actsOnProperty>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Actuation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/ActuatableProperty>
+  ] ;
+  rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "acts on property"@en ;
+  skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en .
+
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#isAssociatedWith> ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/Observation>, <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+  ] ;
+  rdfs:comment "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "has feature of interest"@en ;
+  skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
+
+<http://www.w3.org/ns/sosa/hasResult>
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/Result>
+  ] ;
+  rdfs:comment "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "has result"@en .
+
+<http://www.w3.org/ns/sosa/hosts>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.w3.org/ns/sosa/isHostedBy> ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Platform> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hosts> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "hosts"@en .
+
+<http://www.w3.org/ns/sosa/isHostedBy>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/isHostedBy> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/Platform>
+  ] ;
+  rdfs:comment "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "is hosted by"@en .
+
+<http://www.w3.org/ns/sosa/isObservedBy>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.w3.org/ns/sosa/observes> ;
+  rdfs:domain <http://www.w3.org/ns/sosa/ObservableProperty> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/isObservedBy> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/Sensor>
+  ] ;
+  rdfs:comment "Relation between an ObservableProperty and the Sensor able to observe it."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "is observed by"@en .
+
+<http://www.w3.org/ns/sosa/madeActuation>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.w3.org/ns/sosa/madeByActuator> ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Actuator> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeActuation> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+  ] ;
+  rdfs:comment "Relation between an Actuator and the Actuation it has made."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "made actuation"@en .
+
+<http://www.w3.org/ns/sosa/madeByActuator>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Actuation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeByActuator> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/Actuator>
+  ] ;
+  rdfs:comment "Relation linking an Actuation to the Actuator that made that Actuation."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "made by actuator"@en .
+
+<http://www.w3.org/ns/sosa/madeBySensor>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.w3.org/ns/sosa/madeObservation> ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/Sensor>
+  ] ;
+  rdfs:comment "Relation between an Observation and the Sensor which made the Observation."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "made by sensor"@en .
+
+<http://www.w3.org/ns/sosa/madeObservation>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Sensor> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ] ;
+  rdfs:comment "Relation between a Sensor and an Observation made by the Sensor."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "made observation"@en .
+
+<http://www.w3.org/ns/sosa/observedProperty>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/ObservableProperty>
+  ] ;
+  rdfs:comment "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "observed property"@en .
+
+<http://www.w3.org/ns/sosa/observes>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Sensor> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/observes> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/ObservableProperty>
+  ] ;
+  rdfs:comment "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "observes"@en .
+
+<http://www.w3.org/ns/ssn/forProperty>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Actuator> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/forProperty> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/sosa/ActuatableProperty>
+  ] ;
+  rdfs:comment "A relation between some aspect of an entity and a Property."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "for property"@en ;
+  skos:example "For example, from a Sensor to the properties it can observe; from an Actuator to the properties it can act on; from a Deployment to the properties it was installed to observe or act on; from a SystemCapability to the Property the capability is described for."@en .
+
+<http://www.w3.org/ns/ssn/hasDeployment>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasDeployment> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/ssn/Deployment>
+  ] ;
+  rdfs:comment "Relation between a System and a Deployment, recording that the System is deployed in that Deployment."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "has deployment"@en .
+
+<http://www.w3.org/ns/ssn/hasProperty>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://www.w3.org/ns/ssn/isPropertyOf> ;
+  rdfs:domain <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasProperty> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/ActuatableProperty>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasProperty> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
+  ] ;
+  rdfs:comment "Relation between an entity and a Property of that entity."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "has property"@en .
+
+<http://www.w3.org/ns/ssn/hasSubSystem>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasSubSystem> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/systems/SystemProperty>
+  ] ;
+  rdfs:comment "Relation between a System and its component parts."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "has subsystem"@en .
+
+<http://www.w3.org/ns/ssn/isPropertyOf>
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/ActuatableProperty>, <http://www.w3.org/ns/sosa/ObservableProperty> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/isPropertyOf> ;
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+  ] ;
+  rdfs:comment "Relation between a Property and the entity it belongs to."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "is property of"@en .
+
+<http://www.w3.org/ns/ssn/systems/hasSystemCapability>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/ssn/hasProperty> ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/systems/hasSystemCapability> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/systems/SystemCapability>
+  ] ;
+  rdfs:comment "Relation from a System to a SystemCapability describing the capabilities of the System under certain Conditions."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "has system capability"@en .
+
+<http://www.w3.org/ns/ssn/systems/hasSystemProperty>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <http://www.w3.org/ns/ssn/hasProperty> ;
+  rdfs:domain <http://www.w3.org/ns/ssn/systems/SystemCapability> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ;
+    owl:someValuesFrom <http://www.w3.org/ns/ssn/systems/SystemProperty>
+  ] ;
+  rdfs:comment "Relation from an SystemCapability of a System to a SystemProperty describing the capabilities of the System."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "has system property"@en .
+
+<http://www.w3.org/ns/ssn/systems/qualityOfObservation>
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/systems/qualityOfObservation> ;
+    owl:someValuesFrom <http://purl.org/iot/vocab/iot-taxonomy-lite#QualityOfObservation>
+  ] ;
+  rdfs:comment "Relation linking an Observation to the adjudged quality of the Result. This is complimentary to the SystemCapability information recorded for the Sensor that made the Observation."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "quality of observation"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposedBy>
+  a owl:ObjectProperty ;
+  owl:inverseOf <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposes> ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposedBy> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "A device is exposed by a service."@en ;
+  rdfs:label "Exposed By"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposes>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposes> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  ] ;
+  rdfs:comment """
+        For service-oriented queries. The inverse of exposedBy.
+        """@en ;
+  rdfs:label "Exposes"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasCoverage>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/ssn/System> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasCoverage> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Coverage>
+  ] ;
+  rdfs:comment "Links the devices with their coverages."@en ;
+  rdfs:label "Has Coverage"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasMetadata>
+  a owl:ObjectProperty ;
+  rdfs:range <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Metadata> ;
+  rdfs:comment """
+        Links any concept with metadata about that concept.
+        """@en ;
+  rdfs:label "Has Metadata"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasUnit>
+  a owl:ObjectProperty ;
+  schema:domainIncludes <http://purl.org/iot/vocab/iot-taxonomy-lite#Direction>, <http://www.w3.org/ns/sosa/Actuator>, <http://www.w3.org/ns/sosa/Result>, <http://www.w3.org/ns/sosa/Sensor>, <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#hasUnit> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://purl.oclc.org/NET/ssnx/qu/qu#Unit>
+  ] ;
+  rdfs:comment """
+        Links the sensor with the units of the quantity kind it measures (e.g. A sensor -sensor1- measures temperature in Celsius: senso1 hasUnit Celsius).
+        """ ;
+  rdfs:label "Has Unit"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#isAssociatedWith>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+  rdfs:range [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#isAssociatedWith> ;
+    owl:someValuesFrom <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  ] ;
+  rdfs:comment """
+        Defines the associations between objects and sensors (e.g. A table (object) has an attribute (temperature at the table) which is associated with a sensor (the temperature sensor of the room).
+        """ ;
+  rdfs:label "Is Associated With"@en .
+
+<http://www.loa.istc.cnr.it/ontologies/DUL.owl#hasDataValue>
+  a owl:DatatypeProperty ;
+  schema:domainIncludes <http://purl.org/adaptcentre/openscience/ontologies/consent#Permission>, <http://purl.org/adaptcentre/openscience/ontologies/consent#Purpose>, <http://purl.org/iot/vocab/iot-taxonomy-lite#Direction>, <http://www.w3.org/ns/sosa/Result>, <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  schema:rangeIncludes xsd:boolean, xsd:dateTime, xsd:double, xsd:int, xsd:string ;
+  rdfs:comment " A datatype property that encodes values from a datatype for an Entity. There are several ways to encode values in DOLCE (Ultralite): 1) Directly assert an xsd:_ value to an Entity by using hasDataValue 2) Assert a Region for an Entity by using hasRegion, and then assert an xsd:_ value to that Region, by using hasRegionDataValue 3) Assert a Quality for an Entity by using hasQuality, then assert a Region for that Quality, and assert an xsd:_ value to that Region, by using hasRegionDataValue 4) When the value is required, but not directly observed, assert a Parameter for an xsd:_ value by using hasParameterDataValue, and then associate the Parameter to an Entity by using isConstraintFor 5) When the value is required, but not directly observed, you can also assert a Parameter for a Region by using parametrizes, and then assert an xsd:_ value to that Region, by using hasRegionDataValue The five approaches obey different requirements. For example, a simple value can be easily asserted by using pattern (1), but if one needs to assert an interval between two values, a Region should be introduced to materialize that interval, as pattern (2) suggests. Furthermore, if one needs to distinguish the individual Quality of a value, e.g. the particular nature of the density of a substance, pattern (3) can be used. Patterns (4) and (5) should be used instead when a constraint or a selection is modelled, independently from the actual observation of values in the real world. " ;
+  rdfs:label "Has Data Value"@en .
+
+geo:alt
+  a owl:DatatypeProperty ;
+  rdfs:domain geo:SpatialThing ;
+  rdfs:range xsd:double ;
+  rdfs:comment """The WGS84 altitude of a SpatialThing (decimal meters 
+        above the local reference ellipsoid).""" ;
+  rdfs:label "altitude" .
+
+geo:lat
+  a owl:DatatypeProperty ;
+  rdfs:domain geo:SpatialThing ;
+  rdfs:range xsd:double ;
+  rdfs:comment "The WGS84 latitude of a SpatialThing (decimal degrees)." ;
+  rdfs:label "latitude" .
+
+geo:long
+  a owl:DatatypeProperty ;
+  rdfs:domain geo:SpatialThing ;
+  rdfs:range xsd:double ;
+  rdfs:comment "The WGS84 longitude of a SpatialThing (decimal degrees)." ;
+  rdfs:label "longitude" .
+
+<http://www.w3.org/ns/sosa/resultTime>
+  a owl:DatatypeProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation>, <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:range xsd:dateTime ;
+  rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "result time"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#id>
+  a owl:DatatypeProperty ;
+  schema:domainIncludes <http://www.w3.org/ns/sosa/Actuator>, <http://www.w3.org/ns/sosa/Sensor> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "The ID of the Device or Entity."@en ;
+  rdfs:label "ID"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#interfaceDescription>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> ;
+  rdfs:range xsd:anyURI ;
+  rdfs:comment """
+        Interface Description of the service, e.g. WADL, WSDL, NGSI9 etc.
+        """ ;
+  rdfs:label "Interface Description"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#interfaceType>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> ;
+  rdfs:range xsd:string ;
+  rdfs:comment """
+        Defines the type of interface of the service endpoint, e.g. RESTful, NGSI-9, MQTT, CoAP etc.
+        """@en ;
+  rdfs:label "Interface Type"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#isMobile>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://www.w3.org/ns/sosa/Platform> ;
+  rdfs:range xsd:boolean ;
+  rdfs:comment """
+        Is the Device mobile? This can be used by an IoT management platform to enable tracking of the device's location.
+        """@en ;
+  rdfs:label "Is Mobile"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#isOnline>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> ;
+  rdfs:range xsd:boolean ;
+  rdfs:comment "Identifies if the service is online or not."@en ;
+  rdfs:label "is Online"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#metadataType>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Metadata> ;
+  rdfs:range xsd:string ;
+  rdfs:comment """
+        Defines the type pf the metadata value (e.g. resolution of the sensor).
+        """ ;
+  rdfs:label "Metadata Type"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#metadataValue>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Metadata> ;
+  rdfs:range xsd:string ;
+  rdfs:comment "Value of the metadata" ;
+  rdfs:label "Metadata Value"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#radius>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Circle> ;
+  rdfs:range xsd:double ;
+  rdfs:comment """
+        Specifies the radius of a circle coverage defined by a point -the centre of the circle- and its radius.
+        """ ;
+  rdfs:label "Radius"@en .
+
+<http://purl.oclc.org/NET/ssnx/qu/qu#Unit>
+  a owl:Class ;
+  dc11:source "skos:exactMatch 'Unit' [SysML 1.2-QUDV] http://www.omgwiki.org/OMGSysML/doku.php?id=sysml-qudv:quantities_units_dimensions_values_qudv" ;
+  rdfs:comment "A Unit is an abstract classifier that represents the [VIM] concept of \"measurement unit\" that is defined as \"real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the two quantities as a number.\"" ;
+  rdfs:isDefinedBy "http://purl.oclc.org/NET/ssnx/qu" ;
+  rdfs:label "Unit" ;
+  rdfs:seeAlso "http://www.omgsysml.org/qudv#Unit" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#Action>
+  a owl:Class ;
+  rdfs:comment "'action' defines what action is permitted by the consent." ;
+  rdfs:label "Action" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#AllowedParty>
+  a owl:Class ;
+  rdfs:comment "'Allowed party' defines the party (person or organisation) that is allowed (or denied )to perform certain action on the particular data by this consent.", "'Allowed party' is used to indicate who the party (person or organisation) is that is allowed (or denied )to perform certain action on the particular data by this consent." ;
+  rdfs:label "AllowedParty" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#Consent>
+  a owl:Class ;
+  rdfs:comment "consent of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her;" ;
+  rdfs:label "Consent" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty>
+  a owl:Class ;
+  rdfs:comment "'consenting party' is the person who is giving the consent." ;
+  rdfs:label "ConsentingParty" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#DataSubject>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.org/adaptcentre/openscience/ontologies/consent#ConsentingParty> ;
+  rdfs:comment "'data subject' is the person who is identified by the personal data or the data is about that person." ;
+  rdfs:label "DataSubject" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#Permission>
+  a owl:Class ;
+  rdfs:comment "'permission' defines the authorisation granted by the consent." ;
+  rdfs:label "Permission" .
+
+<http://purl.org/adaptcentre/openscience/ontologies/consent#Purpose>
+  a owl:Class ;
+  rdfs:comment "'purpose' indicates for what purpose the action is allowed by the consent on the data" ;
+  rdfs:label "Purpose" .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Device>
+  a owl:Class ;
+  owl:equivalentClass <http://www.w3.org/ns/ssn/System> ;
+  rdfs:comment """
+        A Device (Class: Device) is a object designed to accomplish a particular task. A Device contains some logic and is producer and/or consumer of data that are exchanged via its Services with other oneM2M entities (Devices, Things) in the network. A Device may be a physical or non-physical entity. In the context of oneM2M a Device is always assumed to be capable of communicating electronically via a network. - In order to accomplish its task, the device performs one or more functionalities - These functionalities are exposed in the network as Services of the Device. - A Device can be composed of several (sub-) Devices - Each Device (including sub-Devices) needs to be individually addressable in the network.
+        """ ;
+  rdfs:label "Device"@en .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#MetaData>
+  a owl:Class ;
+  rdfs:comment """
+        MetaData (Class: MetaData) contain data (like units, precision-ranges …) about a Variable or about an Aspect. E.g. the indoor temperature could have meta data: "Degrees Celsius"
+        """ ;
+  rdfs:label "MetaData"@en .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#OperationOutput>
+  a owl:Class ;
+  owl:equivalentClass <http://www.w3.org/ns/sosa/Result> ;
+  rdfs:comment """
+        OperationOutput (Class: OperationOutput) describes an output of an Operation. OperationOutput also describes the output of a Command. - An Operation/Command may have multiple OperationInputs and/or OperationOutputs
+        """ ;
+  rdfs:label "Operation Output"@en .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service>
+  a owl:Class ;
+  owl:equivalentClass <http://www.w3.org/ns/sosa/Observation> ;
+  rdfs:comment """
+        A Service (Class: Service) is a electronic representation of a Functionality in a network. The Service exposes the Functionality to the network and makes it discoverable, registerable and remotely controllable in the network. A Service is offered by a device that wants (a certain set of) its Functionalities to be discoverable, registerable, remotely controllable by other devices in the network. A Service can expose one or more Functionalities and a Functionality can be exposed by one or more Services. The Input- and Output DataPoints and Operations of a Service may have the same names as for a different Service, however the Service to which they belong differentiates how they are addressed in the Device (e.g. via a port specific to the Service). NOTE: While a Functionality describes the – human understandable – meaning of a Service of the device the Service is used to describe how such functionality is represented in a communication network and can be accessed by electronic means. The Service and its Operations is therefore dependent on the technology of the network, hard- and software of the device.
+        """ ;
+  rdfs:label "Service"@en .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Thing>
+  a owl:Class ;
+  owl:equivalentClass <http://www.w3.org/ns/sosa/Sensor> ;
+  rdfs:comment """
+        A Thing in oneM2M (Class: Thing) is an entity that can be identified in the oneM2M System. A Thing that is not a Device is not able to communicate electronically with its environment. However, the sub-class of Thing that is able to interact electronically is called a "Device". A Thing may have ThingProperties (Object Property: hasThingProperty). A Thing can have relations to other things (Object Property: hasThingRelation). Since a Thing that is not a Device is not able to communicate electronically it cannot influence the value of its ThingProperties or being influenced by it. Similarly a Thing cannot document its - real-world - relationships (via hasThingRelation) to other Things. E.g. A room that is modelled in oneM2M would be a Thing that could have a room-temperature as a ThingProperty and could have a relationship "isAdjacentTo" to another room
+        """ ;
+  rdfs:label "Thing"@en .
+
+<https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#ThingProperty>
+  a owl:Class ;
+  rdfs:comment """
+        A Value (Class: Value) denotes a property of a Thing. A Value can e.g. be observed or influenced by devices, or it constitutes static data about a Thing. E.g. the indoor temperature of the room could be a Value of a Thing "room". A Value of a thing can concern a certain Aspect, e.g. the indoor temperature concerns the Aspect "Temperature" that could be measured by a temperature sensor. A Value of a Thing can have meta data
+        """ ;
+  rdfs:label "Thing Property"@en .
+
+geo:Point
+  a owl:Class ;
+  rdfs:subClassOf geo:SpatialThing ;
+  rdfs:comment """A point, typically described using a coordinate system relative to Earth, such as WGS84.
+        Uniquely identified by lat/long/alt. i.e. spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT), lat(P2, LAT), long(P2, LONG), alt(P2, ALT). sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+        """ ;
+  rdfs:label "point" .
+
+geo:SpatialThing
+  a owl:Class ;
+  rdfs:comment """Anything with spatial extent, i.e. size, shape, or position.
+        e.g. people, places, bowling balls, as well as abstract areas like cubes.
+        """ ;
+  rdfs:label "SpatialThing" .
+
+<http://www.w3.org/ns/sosa/ActuatableProperty>
+  a owl:Class ;
+  rdfs:comment "An actuatable quality (property, characteristic) of a FeatureOfInterest."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Actuatable Property"@en ;
+  skos:example "A window actuator acts by changing the state between a frame and a window. The ability of the window to be opened and closed is its ActuatableProperty."@en .
+
+<http://www.w3.org/ns/sosa/Actuation>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/ActuatableProperty>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Result>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeByActuator> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Actuator>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeByActuator> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Actuation"@en ;
+  skos:example "The activity of automatically closing a window if the temperature in a room drops below 20 degree Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "@en .
+
+<http://www.w3.org/ns/sosa/Actuator>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/System>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeActuation> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/forProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/ActuatableProperty>
+  ] ;
+  rdfs:comment "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Actuator"@en ;
+  skos:example "A window actuator for automatic window control, i.e., opening or closing the window."@en .
+
+<http://www.w3.org/ns/sosa/FeatureOfInterest>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/Property>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasProperty> ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Feature Of Interest"@en ;
+  skos:example "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator."@en .
+
+<http://www.w3.org/ns/sosa/ObservableProperty>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/Property>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/isObservedBy> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/sosa/observedProperty> ] ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ] ;
+  rdfs:comment "An observable quality (property, characteristic) of a FeatureOfInterest."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Observable Property"@en ;
+  skos:example "The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted."@en .
+
+<http://www.w3.org/ns/sosa/Observation>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Result>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Observation"@en ;
+  skos:example "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
+
+<http://www.w3.org/ns/sosa/Platform>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/hosts> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Platform"@en ;
+  skos:example "A post, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators."@en .
+
+<http://www.w3.org/ns/sosa/Result>
+  a owl:Class ;
+  rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Result"@en ;
+  skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
+
+<http://www.w3.org/ns/sosa/Sensor>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/System>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Observation>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/observes> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
+  ] ;
+  rdfs:comment "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+  rdfs:label "Sensor"@en ;
+  skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
+
+<http://www.w3.org/ns/ssn/Deployment>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/forProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/Property>
+  ] ;
+  rdfs:comment "Describes the Deployment of one or more Systems for a particular purpose. Deployment may be done on a Platform."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "Deployment"@en ;
+  skos:example "For example, a temperature Sensor deployed on a wall, or a whole network of Sensors deployed for an Observation campaign."@en .
+
+<http://www.w3.org/ns/ssn/Property>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/isPropertyOf> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+  ] ;
+  rdfs:comment "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "Property"@en .
+
+<http://www.w3.org/ns/ssn/System>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/sosa/isHostedBy> ;
+    owl:allValuesFrom <http://www.w3.org/ns/sosa/Platform>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasDeployment> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/Deployment>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/hasSubSystem> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/System>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/systems/hasSystemCapability> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/systems/SystemCapability>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/hasSubSystem> ] ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other systems."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/> ;
+  rdfs:label "System"@en .
+
+<http://www.w3.org/ns/ssn/systems/Accuracy>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment "The closeness of agreement between the Result of an Observation (resp. the command of an Actuation) and the true value of the observed ObservableProperty (resp. of the acted on ActuatableProperty) under the defined Conditions."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Accuracy"@en .
+
+<http://www.w3.org/ns/ssn/systems/DetectionLimit>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty>, [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ] ;
+    owl:allValuesFrom [
+      a owl:Restriction ;
+      owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemCapability> ] ;
+      owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+    ]
+  ] ;
+  rdfs:comment "An observed value for which the probability of falsely claiming the absence of a component in a material is beta, given a probability alpha of falsely claiming its presence."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Detection Limit"@en .
+
+<http://www.w3.org/ns/ssn/systems/Drift>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: a continuous or incremental change in the reported values of Observations over time for an unchanging Property under the defined Conditions. 
+
+      As an Actuator Property: a continuous or incremental change in the true value of the acted on ActuatableProperty over time for an unchanging command under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Drift"@en .
+
+<http://www.w3.org/ns/ssn/systems/Frequency>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment "The smallest possible time between one Observation, Actuation, or Sampling and the next, under the defined Conditions."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Frequency"@en .
+
+<http://www.w3.org/ns/ssn/systems/Latency>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment "The time between a command for an Observation (resp. Actuation) and the Sensor providing a Result (resp. the Actuator operating the Actuation), under the defined Conditions."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Latency"@en .
+
+<http://www.w3.org/ns/ssn/systems/MeasurementRange>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty>, [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ] ;
+    owl:allValuesFrom [
+      a owl:Restriction ;
+      owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemCapability> ] ;
+      owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+    ]
+  ] ;
+  rdfs:comment "The set of values that the Sensor can return as the Result of an Observation under the defined Conditions."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Measurement Range"@en .
+
+<http://www.w3.org/ns/ssn/systems/Precision>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: the closeness of agreement between replicate Observations on an unchanged or similar Property value: i.e., a measure of a Sensor's ability to consistently reproduce an Observation, under the defined Conditions.
+
+      As an Actuator Property: the closeness of agreement between replicate Actuations for an unchanged or similar command: i.e., a measure of an Actuator's ability to consistently reproduce an Actuation, under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Precision"@en .
+
+<http://www.w3.org/ns/ssn/systems/Resolution>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: the smallest difference in the value of a ObservableProperty being observed that would result in perceptably different values of Observation Results, under the defined Conditions. 
+
+      As an Actuator Property: the smallest difference in the value of an Actuation command that would result in a value change of the ActuatableProperty being acted on, under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Resolution"@en .
+
+<http://www.w3.org/ns/ssn/systems/ResponseTime>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: the time between a (step) change in the value of an observed ObservableProperty and a Sensor (possibly with specified error) 'settling' on an observed value, under the defined Conditions.
+
+      As an Actuator property: the time between a (step) change in the command of an Actuator and the 'settling' of the value of the acted on ActuatableProperty, under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Response Time"@en .
+
+<http://www.w3.org/ns/ssn/systems/Selectivity>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: Selectivity is a Property of a Sensor whereby it provides observed values for one or more ObservableProperties such that the Results for each ObservableProperty are independent of other Properties in the FeatureOfInterest being investigated,  under the defined Conditions.
+
+      As an Actuator Property: Selectivity is a Property of an Actuator whereby it acts on one or more ActuatableProperties such as the Results for each ActuatableProperty are independent of other Properties in the FeatureOfInterest being acted on, under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Selectivity"@en .
+
+<http://www.w3.org/ns/ssn/systems/Sensitivity>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/systems/SystemProperty> ;
+  rdfs:comment """As a Sensor Property: Sensitivity is the quotient of the change in a Result of Observation and the corresponding change in a value of an ObservableProperty being observed, under the defined Conditions.
+
+       As an Actuator Property: Sensitivity is the quotient of the change in a command of Actuation and the corresponding change in a value of an ActuatableProperty being acted on, under the defined Conditions."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "Sensitivity"@en .
+
+<http://www.w3.org/ns/ssn/systems/SystemCapability>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/Property>, [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/forProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/Property>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/systems/SystemProperty>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemCapability> ] ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment """Describes normal measurement, actuation, sampling properties such as accuracy, range, precision, etc. of a System under some specified Conditions such as a temperature range.
+
+    The capabilities specified here are those that affect the primary purpose of the System, while those in OperatingRange represent the system's normal operating environment, including conditions that don't affect the observations or the actuations."""@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "System Capability"@en .
+
+<http://www.w3.org/ns/ssn/systems/SystemProperty>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/Property>, [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ] ;
+    owl:allValuesFrom <http://www.w3.org/ns/ssn/systems/SystemCapability>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/ssn/systems/hasSystemProperty> ] ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "An identifiable and observable characteristic that represents the System's ability to operate its primary purpose: a Sensor to make Observations, an Actuator to make Actuations, or a Sampler to make Samplings."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/ssn/systems/> ;
+  rdfs:label "System Property"@en .
+
+<https://w3id.org/GDPRtEXT#Controller>
+  a owl:Class ;
+  rdfs:comment """
+        The natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data.
+        """@en ;
+  rdfs:isDefinedBy <https://w3id.org/GDPRtEXT/gdpr#article28-10>, <https://w3id.org/GDPRtEXT/gdpr#article4-7>, <https://w3id.org/GDPRtEXT/gdpr#article6-5> ;
+  rdfs:label "Controller" .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Circle>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Coverage> ;
+  rdfs:comment """
+        Circle coverage it needs the location of the sensor as the centre of the circle and the radius as a DataProperty.
+        """@en ;
+  rdfs:label "Circle"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Coverage>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:location ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass geo:Point
+  ] ;
+  rdfs:comment """
+        The coverage of an IoT device (i.e. a temperature sensor inside a room has a coverage of that room).
+        """@en ;
+  rdfs:label "Coverage"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Metadata>
+  a owl:Class ;
+  rdfs:comment """
+        Class used to describe properties that cannot be described by QuantityKind and Units. i.e. the resolution of a sensor.
+        """@en ;
+  rdfs:label "Metadata"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Polygon>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Coverage> ;
+  rdfs:comment """
+        The coverage is made up by linking several points by strait lines.
+        """@en ;
+  rdfs:label "Polygon"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Rectangle>
+  a owl:Class ;
+  rdfs:subClassOf <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Coverage> ;
+  rdfs:comment """
+        The coverage is made up by giving two points which are the opposite corners of a rectangle.
+        """@en ;
+  rdfs:label "Rectangle"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#exposes> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <http://www.w3.org/ns/ssn/System>
+  ] ;
+  rdfs:comment "Service provided by an IoT Device"@en ;
+  rdfs:label "Service"@en .
+
+<http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Tag>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/System> ;
+  rdfs:comment """
+        Device that can redirect to a resource with information (i.e. RFID, NFC, QR-codes, bar-codes).
+        """@en ;
+  rdfs:label "Tagging Device"@en .
