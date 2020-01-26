@@ -5183,6 +5183,99 @@
         <rdfs:label xml:lang="en">Know Sensors In The Area</rdfs:label>
     </owl:Class>
 
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#BloodCoagulation -->
+
+    <owl:Class rdf:about="&iottaxolite;BloodCoagulation">
+        <rdfs:subClassOf rdf:resource="&sosa;ObservableProperty"/>
+        <dc:description xml:lang="en">Blood Coagulation is the process by which blood changes from  liquid to gel to form a blood clot. It allows the cessation of blood loss from an injury.</dc:description>
+        <rdfs:label xml:lang="en">Blood Coagulation</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+    
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#Coagulometer -->
+
+    <owl:Class rdf:about="&iottaxolite;Coagulometer">
+        <rdfs:subClassOf rdf:resource="&sosa;Sensor"/>
+        <dc:description>Coagulometer is a medical device used for measuring the coagulation of a patient&apos;s blood and testing of the hemostasis system.</dc:description>
+        <rdfs:label>Coagulometer</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#FloorSensor -->
+
+    <owl:Class rdf:about="&iottaxolite;FloorSensor">
+        <rdfs:subClassOf rdf:resource="&sosa;Sensor"/>
+        <dc:description>A floor sensor is a set of sensors covering a floor that can be used for measuring load and proximity. By using this information the floor sensor can be also used for detecting activity in a room</dc:description>
+        <rdfs:label xml:lang="en">FloorSensor</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#HDOP -->
+
+    <owl:Class rdf:about="&iottaxolite;HDOP">
+        <rdfs:subClassOf rdf:resource="&sosa;ObservableProperty"/>
+        <rdfs:comment xml:lang="en">Describes the preceision of the GPS signal. Smaller the value is, more precise the signal is.</rdfs:comment>
+        <rdfs:label xml:lang="en">Horizontal Dilution of Precision</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+    
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#INR -->
+
+    <owl:Class rdf:about="&iottaxolite;INR">
+        <rdfs:subClassOf rdf:resource="&qu;Unit"/>
+        <dc:description xml:lang="en">A system established by the World Health Organization (WHO) and the International Committee on Thrombosis and Hemostasis for reporting the results of blood coagulation (clotting) tests. Abbreviated INR. Under the INR system, all results are standardized. For example, a person taking the anticoagulant warfarin (brand name: Coumadin) would regularly have blood tested to measure the INR. The INR permits patients on anticoagulants to travel and obtain comparable test results wherever they are.
+        Medical Definition of International normalized ratio, MedicineNet</dc:description>
+        <rdfs:label xml:lang="en">International Normalized Ratio</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+
+
+
+     <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#SleepDetector -->
+
+    <owl:Class rdf:about="&iottaxolite;SleepDetector">
+        <rdfs:subClassOf rdf:resource="&iottaxolite;SleepSensor"/>
+        <rdfs:comment xml:lang="en">A sleep detector sensor which detects whether the human falls asleep or wakes up.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sleep Detector</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#SleepMonitor -->
+
+    <owl:Class rdf:about="&iottaxolite;SleepMonitor">
+        <rdfs:subClassOf rdf:resource="&iottaxolite;SleepSensor"/>
+        <rdfs:comment xml:lang="en">A sleep monitor sensor which tracks the human sleep state.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sleep Monitor</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#SleepSensor -->
+
+    <owl:Class rdf:about="&iottaxolite;SleepSensor">
+        <rdfs:subClassOf rdf:resource="&sosa;Sensor"/>
+        <rdfs:label xml:lang="en">Sleep Sensor</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#SleepState -->
+
+    <owl:Class rdf:about="&iottaxolite;SleepState">
+        <rdfs:subClassOf rdf:resource="&sosa;ObservableProperty"/>
+        <dc:description xml:lang="en">The event at which a person or animal sleep state has been detected. This could be measured as a Boolean, or labels if the state is not binary</dc:description>
+        <rdfs:label xml:lang="en">Sleep State</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+
 </rdf:RDF>
 
 

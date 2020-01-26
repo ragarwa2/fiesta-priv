@@ -11944,7 +11944,7 @@
     "id" : "437",
     "superClasses" : [ "31" ]
   }, {
-    "iri" : "http://purl.org/iot/vocab/iot-taxonomy-lite#CountStatellitesSignalReceived",
+    "iri" : "http://purl.org/iot/vocab/iot-taxonomy-lite#CountSatellitesSignalReceived",
     "baseIri" : "http://purl.org/iot/vocab/iot-taxonomy-lite",
     "instances" : 0,
     "annotations" : {
@@ -11961,8 +11961,8 @@
       } ]
     },
     "label" : {
-      "IRI-based" : "CountStatellitesSignalReceived",
-      "en" : "Count Statellites Signal Received"
+      "IRI-based" : "CountSatellitesSignalReceived",
+      "en" : "Count Satellites Signal Received"
     },
     "comment" : {
       "en" : "Count of satellites from which a signal is received"

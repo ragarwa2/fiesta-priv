@@ -11,6 +11,11 @@ Privacy graph
 =======
 ![privacy](https://github.com/ragarwa2/fiesta-priv/privacygraph.png)
 
+Ontology Connections 
+======
+![Ontology Connections](https://github.com/ragarwa2/fiesta-priv/connections.png)
+
+
 Sample SPARQL Query
 ===================
 ```sparql
@@ -42,7 +47,12 @@ Authors
 
 Tools used
 ==========
-- Ontology Documentation: [Widoco](https://github.com/dgarijo/Widoco)
+- Ontology Documentation: 
+	- [Widoco](https://github.com/dgarijo/Widoco)
+- Ontology Validation: 
+	- [OOPS]
+	- [Vapour]
+
 
 General Information
 ===================
