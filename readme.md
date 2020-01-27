@@ -5,15 +5,15 @@ Experimentation is crucial for building systems that can evolve to meet high lev
 
 Modifications performed
 ========
-![Ontology](https://github.com/ragarwa2/fiesta-priv/ontology.png)
+![Ontology](https://github.com/ragarwa2/fiesta-priv/blob/master/ontology.png)
 
 Privacy graph
 =======
-![privacy](https://github.com/ragarwa2/fiesta-priv/privacygraph.png)
+![privacy](https://github.com/ragarwa2/fiesta-priv/blob/master/privacygraph.png)
 
 Ontology Connections 
 ======
-![Ontology Connections](https://github.com/ragarwa2/fiesta-priv/connections.png)
+![Ontology Connections](https://github.com/ragarwa2/fiesta-priv/blob/master/connections.png)
 
 
 Sample SPARQL Query
