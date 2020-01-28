@@ -1,3 +1,7 @@
+Citation
+========
+Rachit Agarwal, Tarek Elsaleh, Elias Tragos, "Privacy preserving IoT Ontology enabling Semantic Interoperability, Federation of Testbeds and Experimentation", (Submitted) In Proceedings of The Mobile Data Management (MDM), IEEE, Versailles, 2020
+
 Abstract
 ========
 
@@ -50,13 +54,14 @@ Tools used
 - Ontology Documentation: 
 	- [Widoco](https://github.com/dgarijo/Widoco)
 - Ontology Validation: 
-	- [OOPS]
-	- [Vapour]
+	- [OOPS](http://smart-ics.ee.surrey.ac.uk/fiesta/ontology/fiesta-priv/OOPSevaluation/oopsEval.html#)
+	- [Vapour](http://linkeddata.uriburner.com:8000/vapour?uri=http%3A%2F%2Fpurl.org%2Fiot%2Fontology%2Ffiesta-priv%23&acceptRdfXml=1&defaultResponse=dontmind&userAgent=#)
 
 
 General Information
 ===================
-The ontology file is fiesta-priv.owl and the taxonomy file is iot-taxonomy-lite.owl. Nonetheless, other format files are also made available. The available code source of the ontology documentation and deploys it along with necessary files
+The ontology file is fiesta-priv.owl and the taxonomy file is iot-taxonomy-lite.owl. Nonetheless, other format files are also made available. The available code, source of the ontology documentation, deploys it along with necessary files
 
 
 Do you have a problem? Open an issue at [https://github.com/ragarwa2/fiesta-priv](https://github.com/ragarwa2/fiesta-priv)
+
