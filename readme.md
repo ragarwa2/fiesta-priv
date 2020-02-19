@@ -46,7 +46,7 @@ Sample SPARQL Query
 Authors
 =======
 - [Rachit Agarwal](https://rachit.gitlab.com), Inria Paris
-- Tarek Elsaleh, UniS
+- Tarek Elsaleh, University of Surrey, UK
 - Elias Tragos, Insight Center for Data Analytics, UCD
 
 Tools used
