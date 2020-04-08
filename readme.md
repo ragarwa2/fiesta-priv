@@ -1,6 +1,6 @@
 Citation
 ========
-Rachit Agarwal, Tarek Elsaleh, Elias Tragos, "Privacy preserving IoT Ontology enabling Semantic Interoperability, Federation of Testbeds and Experimentation", (Submitted) In Proceedings of The Mobile Data Management (MDM), IEEE, Versailles, 2020
+Rachit Agarwal, Tarek Elsaleh, Elias Tragos, "Privacy preserving IoT Ontology enabling Semantic Interoperability, Federation of Testbeds and Experimentation", (Submitted) 2020
 
 Abstract
 ========
