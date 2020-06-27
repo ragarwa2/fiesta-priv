@@ -85,10 +85,10 @@ _:genid5 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/adaptcentre
 _:genid5 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.oclc.org/NET/UNIS/fiware/iot-lite#Service> .
 _:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid6 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> .
-_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/ns/sosa/Actuation> .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/ns/sosa/ActuatableProperty> .
 _:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid7 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> .
-_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/ns/sosa/Observation> .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/ns/sosa/ObservableProperty> .
 _:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
 _:genid8 <http://www.w3.org/2002/07/owl#onProperty> <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> .
 _:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/ns/ssn/System> .
@@ -636,6 +636,7 @@ _:genid52 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://purl.oclc.org/N
 <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/2000/01/rdf-schema#comment> "Anything with spatial extent, i.e. size, shape, or position.\n        e.g. people, places, bowling balls, as well as abstract areas like cubes.\n        " .
 <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> <http://www.w3.org/2000/01/rdf-schema#label> "SpatialThing" .
 <http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/Property> .
 <http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "An actuatable quality (property, characteristic) of a FeatureOfInterest."@en .
 <http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/sosa/> .
 <http://www.w3.org/ns/sosa/ActuatableProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Actuatable Property"@en .

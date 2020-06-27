@@ -108,11 +108,11 @@ skos:note a owl:AnnotationProperty .
   ], [
     a owl:Restriction ;
     owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
-    owl:someValuesFrom <http://www.w3.org/ns/sosa/Actuation>
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/ActuatableProperty>
   ], [
     a owl:Restriction ;
     owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
-    owl:someValuesFrom <http://www.w3.org/ns/sosa/Observation>
+    owl:someValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
   ], [
     a owl:Restriction ;
     owl:onProperty <http://purl.org/adaptcentre/openscience/ontologies/consent#permission_given_for_data> ;
@@ -867,6 +867,7 @@ geo:SpatialThing
   rdfs:comment "An actuatable quality (property, characteristic) of a FeatureOfInterest."@en ;
   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
   rdfs:label "Actuatable Property"@en ;
+  rdfs:subClassOf <http://www.w3.org/ns/ssn/Property> ;
   skos:example "A window actuator acts by changing the state between a frame and a window. The ability of the window to be opened and closed is its ActuatableProperty."@en .
 
 <http://www.w3.org/ns/sosa/Actuation>

@@ -295,13 +295,13 @@
         <schema:rangeIncludes>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&consent;permission_given_for_data"/>
-                <owl:someValuesFrom rdf:resource="&sosa;Actuation"/>
+                <owl:someValuesFrom rdf:resource="&sosa;ActuatableProperty"/>
             </owl:Restriction>
         </schema:rangeIncludes>
         <schema:rangeIncludes>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&consent;permission_given_for_data"/>
-                <owl:someValuesFrom rdf:resource="&sosa;Observation"/>
+                <owl:someValuesFrom rdf:resource="&sosa;ObservableProperty"/>
             </owl:Restriction>
         </schema:rangeIncludes>
         <schema:rangeIncludes>
@@ -1441,6 +1441,7 @@
     <!-- http://www.w3.org/ns/sosa/ActuatableProperty -->
 
     <owl:Class rdf:about="&sosa;ActuatableProperty">
+        <rdfs:subClassOf rdf:resource="&ssn;Property"/>
         <rdfs:comment xml:lang="en">An actuatable quality (property, characteristic) of a FeatureOfInterest.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/sosa/"/>
         <rdfs:label xml:lang="en">Actuatable Property</rdfs:label>

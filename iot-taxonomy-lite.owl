@@ -5166,7 +5166,7 @@
         <rdfs:comment>&apos;purpose&apos; indicates for what purpose the action is allowed by the consent on the data</rdfs:comment>
     </owl:Class>
 
-        <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#DiscoverSensors -->
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#DiscoverSensors -->
     
     <owl:Class rdf:about="&iottaxolite;DiscoverSensors">
         <rdfs:subClassOf rdf:resource="&consent;Action"/>
@@ -5179,7 +5179,7 @@
     
     <owl:Class rdf:about="&iottaxolite;KnowSensorsInTheArea">
         <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
-        <rdfs:comment xml:lang="en">Purpose if to know sensors in the given area</rdfs:comment>
+        <rdfs:comment xml:lang="en">Purpose to know sensors in the given area</rdfs:comment>
         <rdfs:label xml:lang="en">Know Sensors In The Area</rdfs:label>
     </owl:Class>
 
@@ -5274,6 +5274,95 @@
         <dc:description xml:lang="en">The event at which a person or animal sleep state has been detected. This could be measured as a Boolean, or labels if the state is not binary</dc:description>
         <rdfs:label xml:lang="en">Sleep State</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/iot/vocab/m3-lite#"/>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#IdentifyOutlierObservsations -->
+    
+    <owl:Class rdf:about="&iottaxolite;IdentifyOutlierObservsations">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose to identify if an observation is outlier or not.</rdfs:comment>
+        <rdfs:label xml:lang="en">Identify Outlier Observsations</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#EnvironmentalChatbot -->
+    
+    <owl:Class rdf:about="&iottaxolite;EnvironmentalChatbot">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose to create a chatbot that could provide environment related knowledge in a userfriendly manner.</rdfs:comment>
+        <rdfs:label xml:lang="en">Environmental Chatbot</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#EnvironmentalDashboard -->
+    
+    <owl:Class rdf:about="&iottaxolite;EnvironmentalDashboard">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose to create a dashbord that could provide environment related knowledge to the people.</rdfs:comment>
+        <rdfs:label xml:lang="en">Environmental Dashboard</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#Meeting -->
+    
+    <owl:Class rdf:about="&iottaxolite;Meeting">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose for either arranging a meeting or actually meeting someone.</rdfs:comment>
+        <rdfs:label xml:lang="en">Meeting</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#EnterRoom -->
+    
+    <owl:Class rdf:about="&iottaxolite;EnterRoom">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose for requesting to enter a room.</rdfs:comment>
+        <rdfs:label xml:lang="en">Enter Room</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#MonitorTemperature -->
+    
+    <owl:Class rdf:about="&iottaxolite;MonitorTemperature">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose for monitoring temperature.</rdfs:comment>
+        <rdfs:label xml:lang="en">Monitor Temperature</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#CalculateEnergyConsumption -->
+    
+    <owl:Class rdf:about="&iottaxolite;CalculateEnergyConsumption">
+        <rdfs:subClassOf rdf:resource="&consent;Purpose"/>
+        <rdfs:comment xml:lang="en">Purpose of calculating energy consumption by a resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">Calculate Energy Consumption</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#MeetForCoffee -->
+    
+    <owl:Class rdf:about="&iottaxolite;MeetForCoffee">
+        <rdfs:subClassOf rdf:resource="&iottaxolite;Meeting"/>
+        <rdfs:comment xml:lang="en">Purpose of meeting a person for a coffee or arranging a meeting</rdfs:comment>
+        <rdfs:label xml:lang="en">Meet For Coffee</rdfs:label>
+    </owl:Class>
+
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#ErrorCorrection -->
+    
+    <owl:Class rdf:about="&iottaxolite;ErrorCorrection">
+        <rdfs:subClassOf rdf:resource="&consent;Action"/>
+        <rdfs:comment xml:lang="en">Action related to finding error in the data and correcting them</rdfs:comment>
+        <rdfs:label xml:lang="en">Error Correction</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#DiscoverObservsation -->
+    
+    <owl:Class rdf:about="&iottaxolite;DiscoverObservsation">
+        <rdfs:subClassOf rdf:resource="&consent;Action"/>
+        <rdfs:comment xml:lang="en">Action related to finding observsations either of a particular kind or all.</rdfs:comment>
+        <rdfs:label xml:lang="en">Discover Observsation</rdfs:label>
+    </owl:Class>
+
+    <!-- http://purl.org/iot/vocab/iot-taxonomy-lite#OpenTheDoor -->
+    
+    <owl:Class rdf:about="&iottaxolite;OpenTheDoor">
+        <rdfs:subClassOf rdf:resource="&consent;Action"/>
+        <rdfs:comment xml:lang="en">Action related to either request for opening the door or actually opening it.</rdfs:comment>
+        <rdfs:label xml:lang="en">Open The Door</rdfs:label>
     </owl:Class>
 
 </rdf:RDF>
